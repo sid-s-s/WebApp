@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="animate__animated animate__fadeInDown">
+        <div class="container d-flex justify-content-between align-items-center">
+            <img src="https://via.placeholder.com/150" alt="Company Logo" class="logo">
+            <h1 class="header-title">Tech Innovators</h1>
+            <nav class="navbar navbar-expand-lg navbar-light d-none d-lg-flex justify-content-end">
+                <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h2 class="mb-4 animate__animated animate__fadeInUp">AI-based Machine Screening</h2>
+                <div class="form-section p-4 rounded shadow animate__animated animate__fadeInUp">
+                    <form action="/submit" method="post" id="screeningForm">
+                        <div class="form-group">
+                            <label for="department">Select Department:</label>
+                            <select id="department" name="department" class="form-control" required>
+                                <option value="">Choose...</option>
+                                <option value="hr">HR</option>
+                                <option value="mechanical">Mechanical</option>
+                                <option value="it">IT</option>
+                                <option value="marketing">Marketing</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="keywords">Keywords:</label>
+                            <input type="text" id="keywords" name="keywords" class="form-control" placeholder="Enter keywords" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="number">Number of Resumes:</label>
+                            <select id="number" name="number" class="form-control" required>
+                                <option value="">Choose...</option>
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="15">15</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="animate__animated animate__fadeInUp">
+        <p>&copy; 2024 Tech Innovators. All rights reserved.</p>
+        <p>{{ current_date }}</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
